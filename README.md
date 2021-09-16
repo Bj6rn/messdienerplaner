@@ -1,5 +1,22 @@
 # messdienerplaner
-Programm zur Verwaltung von Messdienern und dem halbautomatischen Erstellen von Messdienerplänen.
+Programm zur Verwaltung von Messdienern und dem einfachen Erstellen von Messdienerplänen.
+<p align="center">
+<img src="img/messdienerplaner_screenshot.png" width="80%">
+</p>
+
+## Features
+- Eingabe und Verwaltung von Messdienern
+- Eingabe und Verwaltung von Messen
+- Erstellen vom Messdienerplan
+  - Eintragen von gespeicherten Messen und manuelle Eingabe möglich
+  - Automatisches zuordnen des passenden Datums einer Messe
+  - Automatisches Eintragen der Messdiener nach vorgegebenen Kriterien
+    - Alter, Gruppenzugehörigkeit, Häufigkeit, Urlaub, uvm.
+  - Coronamodus: nur 2 Messdiener werden pro Messe eingeteilt
+- Export des Messdienerplan als PDF
+  - Titelblatt mit eigenem Text und Logo/Bild
+  - Numerierte Seiten
+  - Kein Seitenumbruch innerhalb eines Eintrags
 
 ## Getting Started
 Als erstes musst du sicherstellen, dass `Node.js` installiert ist, damit kannst du dann `node` und `npm` nutzen.
