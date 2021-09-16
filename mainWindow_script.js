@@ -550,7 +550,7 @@ ipcRenderer.on('messdiener_db:read', function(e, data_array){
 });
 //neuen Messdiener als objekt dem array hinzufügen und in der Liste anzeigen
 ipcRenderer.on('messdiener_db:add', function(e, obj){
-  $("#messdiener-area > .noData").hide();
+  $("#md-area > .noData").hide();
   let new_obj = new messdiener_obj(
     obj.vorname,
     obj.nachname,
@@ -580,7 +580,7 @@ ipcRenderer.on('messdiener_db:remove', function(e, index){
   md_show_details(messdiener_ausgewählt);
   $("#md-list > li").eq(index).remove();
   if (messdiener_list.length <= 0) {
-    $("#messdiener-area > .noData").show();
+    $("#md-area > .noData").show();
   }
 });
 //detailanzeige zur ausgewählten messe
