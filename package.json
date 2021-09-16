@@ -1,0 +1,18 @@
+{
+  "name": "messdienerplaner",
+  "version": "1.0.0",
+  "description": "Programm zur Verwaltung von Messdienern und dem halbautomatischen Erstellen von Messdienerplänen.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Björn Bousart - bjoernbousart.de",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^14.0.1"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "pdf-creator-node": "^2.2.4"
+  }
+}

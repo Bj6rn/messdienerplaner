@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      #titelseite {
+        page-break-inside: avoid;
+        overflow: hidden;
+      }
+      #plan-title {
+        margin: 10px;
+        text-align: center;
+      }
+      #plan-datum {
+        margin: 10px;
+        text-align: center;
+      }
+      #plan-beschreibung {
+        margin: 10px;
+        text-align: center;
+      }
+      #plan-logo_img {
+        margin: 10px 25% 0px 25%;
+        width: 50%;
+      }
+      #plan-entry-container {
+        margin: 0px;
+        list-style-type: none;
+        page-break-before: always;
+      }
+      .plan-entry {
+        margin: 10px;
+        page-break-inside: avoid; /*verhindert den Seitenumbruch innerhalb eines Eintrags*/
+      }
+      .plan-entry-header {
+        margin: 0px;
+      }
+      .plan-entry-header h4 {
+        margin: 0px;
+      }
+      .plan-entry-messdiener {
+        display: inline-table;
+        width: 100%;
+        padding-inline-start: 40px;
+        list-style-type: none;
+      }
+      .plan-entry-messdiener li {
+        float: left;
+        display: table-cell;
+        margin: 0px;
+        width: 50%;
+      }
+      .footer {
+        text-align: center;
+        color: #444;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="titelseite">
+      <h2 id="plan-title">{{title}}</h2>
+      <h4 id="plan-datum">{{datum_start}} bis {{datum_end}}</h4>
+      <p id="plan-beschreibung">{{beschreibung}}</p>
+      <img id="plan-logo_img" src="{{logo_img}}" alt="Logo messdienerplaner">
+    </div>
+   <ul id="plan-entry-container">
+     {{#each eintraege}}
+     <li class="plan-entry">
+       <div class="plan-entry-header">
+         <h4>{{this.datum}}</h4>
+         <h4>{{this.uhrzeit_name}}</h4>
+       </div>
+       <ul class="plan-entry-messdiener">
+         {{#each this.messdiener}}
+          <li>{{this}}</li>
+         {{/each}}
+       </ul>
+     </li>
+     {{/each}}
+   </ul>
+  </body>
+</html>

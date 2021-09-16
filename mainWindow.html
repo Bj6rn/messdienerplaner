@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';img-src 'self' data:;">
+    <title>messdienerplaner</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="mainWindow_script.js"></script>
+  </head>
+  <body>
+    <section id="layout">
+      <div id="plan-area">
+
+      </div>
+      <div id="md-area">
+        <div class="noData">
+          <h3>-Keine Daten für Messdiener vorhanden-</h3>
+        </div>
+        <ul class="list" id="md-list">
+
+        </ul>
+        <div class="details" id="md-details">
+          <label for="md-name">Name: </label>
+          <p id="md-name"> <br> </p>
+          <label for="md-alter">Alter: </label>
+          <p id="md-alter"> <br> </p>
+          <label for="md-counter">Aufgestellt-Zähler: </label>
+          <p id="md-counter"> <br> </p>
+          <label for="md-urlaub">Urlaub: </label>
+          <p id="md-urlaub"> <br> </p>
+          <label for="md-gruppe">Gruppe: </label>
+          <p id="md-gruppe"> <br> </p>
+        </div>
+        <div class="edit-area">
+          <div class="add_btn" title="Messdiener hinzufügen"><img src="img/person_add_alt_1_white_24dp.svg" alt="ADD"></div>
+          <div class="edit_btn" title="Messdiener bearbeiten"><img src="img/edit_white_24dp.svg" alt="EDIT"></div>
+          <div class="delete_btn" title="Messdiner löschen"><img src="img/delete_forever_white_24dp.svg" alt="DELETE"></div>
+        </div>
+      </div>
+      <div id="messen-area">
+        <div class="noData">
+          <h3>-Keine Daten für Messen vorhanden-</h3>
+        </div>
+        <ul class="list" id="ms-list">
+
+        </ul>
+        <div class="details" id="ms-details">
+          <label for="ms-name">Name: </label>
+          <p id="ms-name"> <br> </p>
+          <label for="ms-wochentag">Wochentag: </label>
+          <p id="ms-wochentag"> <br> </p>
+          <label for="ms-uhrzeit">Uhrzeit: </label>
+          <p id="ms-uhrzeit"> <br> </p>
+          <label for="ms-md_anzahl">Messdiener-Anzahl: </label>
+          <p id="ms-md_anzahl"> <br> </p>
+          <label for="ms-altersgrenzen">Altersgrenzen: </label>
+          <p id="ms-altersgrenzen"> <br> </p>
+        </div>
+        <div class="edit-area">
+          <div class="add_btn" title="Messe hinzufügen"><img src="img/note_add_white_24dp.svg" alt="ADD"></div>
+          <div class="edit_btn" title="Messe bearbeiten"><img src="img/edit_white_24dp.svg" alt="EDIT"></div>
+          <div class="delete_btn" title="Messe löschen"><img src="img/delete_forever_white_24dp.svg" alt="DELETE"></div>
+        </div>
+      </div>
+      <div id="settings-area">
+        <div id="plan_info">Klicke auf NEW um einen neuen Plan zu erstellen.</div>
+        <div id="aufgestelltCounter-Settings">
+          <label for="aufgestelltCounter">Messdiener höchstens (X) - Mal einteilen:</label>
+          <input type="number" name="aufgestelltCounter" value="1" min="1" max="99">
+        </div>
+        <div id="algorithmus_settings">
+          <label>Messdiener nach folgendem Muster einteilen:</label>
+          <label for="1">Mixed
+            <input type="radio" name="einteil-algorithmus" value="1" checked>
+          </label>
+          <label for="2">Groups
+            <input type="radio" name="einteil-algorithmus" value="2">
+          </label>
+        </div>
+        <div id="corona_settings">
+          <label for="coronamodus">Corona-Modus (nur 2 MD pro Messe): </label>
+          <input type="checkbox" name="coronamodus">
+        </div>
+
+        <div id="saving-area">
+          <div class="button" id="urlaubsverwaltung" title="Urlaubsverwaltung">Urlaub verwalten<img src="img/event_busy_white_24dp.svg"></div>
+          <div class="button" id="newPlan_btn" title="neuen Plan erstellen">Plan erstellen<img src="img/fiber_new_white_24dp.svg" alt="NEW"></div>
+          <div class="button" id="export_btn" title="Plan exportieren">Export<img src="img/picture_as_pdf_white_24dp.svg" alt="EXPORT"></div>
+        </div>
+      </div>
+    </section>
+    <section id="modal-section"></section>
+  </body>
+</html>
