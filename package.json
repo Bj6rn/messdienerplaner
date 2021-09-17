@@ -1,7 +1,7 @@
 {
   "name": "messdienerplaner",
   "version": "1.0.0",
-  "description": "Programm zur Verwaltung von Messdienern und dem halbautomatischen Erstellen von Messdienerplänen.",
+  "description": "Programm zur Verwaltung von Messdienern und dem einfachen Erstellen von Messdienerplänen.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
