@@ -4,12 +4,16 @@
   "description": "Programm zur Verwaltung von Messdienern und dem einfachen Erstellen von Messdienerplänen.",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-linux": "electron-packager . messdienerplaner --platform linux --arch x64 --out dist/ --icon=img/logo_color1.png",
+    "package-windows": "electron-packager . messdienerplaner --platform win32 --arch x64 --out dist/ --icon=img/logo_color1.ico",
+    "package-windows": "electron-packager . messdienerplaner --platform darwin --arch x64 --out dist/ --icon=img/logo_color1.icns"
   },
   "author": "Björn Bousart - bjoernbousart.de",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^14.0.1"
+    "electron": "^14.0.1",
+    "electron-packager": "^15.4.0"
   },
   "dependencies": {
     "jquery": "^3.6.0",
