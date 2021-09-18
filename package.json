@@ -7,7 +7,7 @@
     "start": "electron .",
     "package-linux": "electron-packager . messdienerplaner --platform linux --arch x64 --out dist/ --icon=img/logo_color1.png",
     "package-windows": "electron-packager . messdienerplaner --platform win32 --arch x64 --out dist/ --icon=img/logo_color1.ico",
-    "package-windows": "electron-packager . messdienerplaner --platform darwin --arch x64 --out dist/ --icon=img/logo_color1.icns"
+    "package-mac": "electron-packager . messdienerplaner --platform darwin --arch x64 --out dist/ --icon=img/logo_color1.icns"
   },
   "author": "Björn Bousart - bjoernbousart.de",
   "license": "MIT",
