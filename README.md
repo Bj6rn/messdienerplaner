@@ -31,3 +31,7 @@ Fast geschaft, die letzen Schritte um den __messdienerplaner__ zu nutzen sind da
 - `cd messdienerplaner` um ins Programmverzeichnes zu gehen
 - `npm install` um die Dependencies vom Programm zu installieren
 - `npm start` um den __messdienerplaner__ zu starten
+
+Jetzt ist es noch möglich den __messdienerplaner__ so zu verpacken, dass er auch auf auf Systemen ohne Node.js ausführbar ist:
+- `npm run package-windows` erstellt ein Packet für Windowssysteme, auf denen dann die Anwendung ausgeführt werden kann
+
