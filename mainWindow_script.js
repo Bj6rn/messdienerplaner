@@ -1,6 +1,6 @@
 'use strict';
 const $ = require('jquery');
-const electron = require('electron')
+const electron = require('electron');
 const {ipcRenderer} = electron;
 
 let messdiener_list = [];
@@ -29,6 +29,23 @@ function Ausschlusskriterium(message) {
   this.message=message;
   this.name="Ausschlusskriterium";
 }
+
+function show_snackbar(message) {
+  Snackbar.show({
+    text: message,
+    pos: 'top-left',
+    textColor: '#EEEEEE',
+    actionTextColor: '#b55400',
+    backgroundColor: '#393e46',
+    actionText: 'OK',
+    duration: '4000',
+    width: '400px',
+  });
+}
+
+ipcRenderer.on('snackbar:message', function(e, message) {
+  show_snackbar(message);
+});
 
 class messdiener_obj {
   constructor(vorname, nachname, geburtsdatum, gruppe) {
@@ -343,9 +360,9 @@ function add_entry_to_plan(index, messe) {
     $("#plan-area > ul > li").eq(index-1).after(html);
   } catch (err) {
     if (err instanceof Datumskonflikt) {
-      alert("Datumskonflikt: Messe kann hier nicht eingetragen werden");
+      show_snackbar("Datumskonflikt: Messe kann hier nicht eingetragen werden");
     } else if (err instanceof Zuteilungsfehler) {
-      alert(err.message);
+      show_snackbar(err.message);
     } else {
       console.log(err);
     }
@@ -452,7 +469,7 @@ function add_manual_plan_entry(index) {
         show_plan_info();
         closeModal();
       } else {
-        alert("Alle Felder müssen ausgefüllt werden.")
+        show_snackbar("Alle Felder müssen ausgefüllt werden.");
       }
     });
     $(".cancel_btn").click(closeModal);
@@ -483,7 +500,7 @@ function add_manual_plan_entry(index) {
       let html = `<li class="plan-entry"> <div class="plan-entry-title"> <h4 class="plan-entry-datum">${field_1}</h4> <h4 class="plan-entry-uhrzeit">${field_2}</h4> </div> <ul class="plan-entry-md"> ${field_3} </ul> <div class="delete-plan-entry" title="Eintrag löschen"><img src="img/delete_forever_white_24dp.svg" alt="DELETE"></div> <div class="add-plan-entry" title="Eintrag hinzufügen"><img src="img/add_white_24dp.svg" alt="ADD"></div> </li>`;
       $("#plan-area > ul > li").eq(index-1).after(html);
     } catch (err) {
-      alert("Datumskonflikt: Kann hier nicht eingetragen werden");
+      show_snackbar("Datumskonflikt: Kann hier nicht eingetragen werden");
     }
   }
   //Ausführen der modal Funktion, die alles weitere zum manuellen Eintrag händelt
@@ -727,7 +744,7 @@ $(document).ready(function(){
         show_plan_info();
         closeModal();
       } else {
-        alert("Alle Felder müssen ausgefüllt werden.")
+        show_snackbar("Alle Felder müssen ausgefüllt werden.");
       }
     });
     $(".cancel_btn").click(closeModal);
@@ -783,7 +800,7 @@ $(document).ready(function(){
         start_new_plan(form.content);
         closeModal();
       } else {
-        alert("Alle Felder müssen ausgefüllt werden.")
+        show_snackbar("Alle Felder müssen ausgefüllt werden.");
       }
     });
     $(".cancel_btn").click(closeModal);
@@ -806,12 +823,12 @@ $(document).ready(function(){
           export_plan();
           closeModal();
         } else {
-          alert("Alle Felder müssen ausgefüllt werden.")
+          show_snackbar("Alle Felder müssen ausgefüllt werden.");
         }
       });
       $(".cancel_btn").click(closeModal);
     } else {
-      alert("Da steht noch zu wenig im Plan um ihn jetzt schon zu exportieren.");
+      show_snackbar("Da steht noch zu wenig im Plan um ihn jetzt schon zu exportieren.");
     }
   });
 
@@ -827,7 +844,7 @@ $(document).ready(function(){
         ipcRenderer.send('messdiener_db:add', form.content);
         closeModal();
       } else {
-        alert("Alle Felder müssen ausgefüllt werden.")
+        show_snackbar("Alle Felder müssen ausgefüllt werden.");
       }
     });
     $(".cancel_btn").click(closeModal);
@@ -847,7 +864,7 @@ $(document).ready(function(){
           ipcRenderer.send('messdiener_db:edit', messdiener_ausgewählt, form.content);
           closeModal();
         } else {
-          alert("Alle Felder müssen ausgefüllt werden.")
+          show_snackbar("Alle Felder müssen ausgefüllt werden.");
         }
       });
       $(".cancel_btn").click(closeModal);
@@ -886,7 +903,7 @@ $(document).ready(function(){
         ipcRenderer.send('messen_db:add', form.content);
         closeModal();
       } else {
-        alert("Alle Felder müssen ausgefüllt werden.")
+        show_snackbar("Alle Felder müssen ausgefüllt werden.");
       }
     });
     $(".cancel_btn").click(closeModal);
@@ -906,7 +923,7 @@ $(document).ready(function(){
           ipcRenderer.send('messen_db:edit', messe_ausgewählt, form.content);
           closeModal();
         } else {
-          alert("Alle Felder müssen ausgefüllt werden.")
+          show_snackbar("Alle Felder müssen ausgefüllt werden.");
         }
       });
       $(".cancel_btn").click(closeModal);

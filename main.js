@@ -114,11 +114,17 @@ function export_to_pdf(data, output_path) {
     .create(doc, options)
     .then((res) => {
       console.log(res);
+      snackbar_message("Plan erfolgreich exportiert.");
     })
     .catch((error) => {
       console.log(error);
+      snackbar_message("Fehler beim exportieren.");
     })
 }
+
+function snackbar_message(message) {
+  mainWindow.webContents.send('snackbar:message', message);
+};
 
 //Messdiener Database-Handling
 let filepath_messdiener_db = "messdiener_db.json";
@@ -183,7 +189,6 @@ ipcMain.on('plan:export', function (e, data){
       export_to_pdf(data, filePath);
     }
   })
-  //mainWindow.webContents.send('plan:export');
 });
 
 ipcMain.on('plan:logo_img', function (e) {
