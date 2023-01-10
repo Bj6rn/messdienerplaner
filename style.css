@@ -18,6 +18,7 @@ html, body {
   background-color: var(--background-color);
   color: var(--text-color);
   user-select: none; /*disables text-selection by user*/
+  -webkit-user-drag: none;
 }
 
 .button {
