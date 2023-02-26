@@ -12,8 +12,8 @@
   "author": "Björn Bousart - bjoernbousart.de",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^14.0.1",
-    "electron-packager": "^15.4.0"
+    "electron": "^23.1.1",
+    "electron-packager": "^17.1.1"
   },
   "dependencies": {
     "jquery": "^3.6.0",

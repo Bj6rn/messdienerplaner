@@ -1,3 +1,5 @@
 /node_modules/
 /dist/
 /debian-installer-config.json
+/messdiener_db.json
+/messen_db.json
